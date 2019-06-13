@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="operation" extends="struts-default" namespace="/" >
+<action name="OperationAction_*" class="com.action.OperationAction" method="{1}">
+<result name="showOne">/operation/showOne.jsp</result>
+<result name="chooseClass">/operation/chooseClass.jsp</result>
+<result name="stuAdmin_t">/operation/stuAdmin_t.jsp</result>
+<result name="showOneClass">/operation/showOneClass.jsp</result>
+<result name="selectOneClass" type="redirect-action">
+      <param name="actionName">OperationAction_selectOneClass.action</param>
+      <param name="namespace">/</param>
+</result>
+<result name="deleteStudent">/operation/deleteStudent.jsp</result>
+<result name="update">/operation/updateStudent.jsp</result>
+<result name="modify">/operation/modify.jsp</result>
+</action>
+</package>
+</struts>
+

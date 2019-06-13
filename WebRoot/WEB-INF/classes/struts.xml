@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+
+ <constant name="struts.devMode" value="true" />
+
+<constant name="struts.custom.i18n.resources" value="messageResources" />
+
+
+
+<package name="bookcode"  extends="struts-default" namespace="/">
+   <interceptors>
+   <interceptor name='helloworld' class='Interceptor.HelloWorldInterceptor'></interceptor>
+   </interceptors>
+
+
+   <action name="LoginAction_*" class="com.action.LoginAction" method="{1}">
+   <result name="input">/login/register.jsp</result>
+	<result name="success">/success.jsp</result>
+	<result name="error">/error.jsp</result>
+	<result name="stuAdmin_s">/operation/stuAdmin_s.jsp</result>
+	<result name="chooseClass" type="redirect-action">
+      <param name="actionName">OperationAction_chooseClass.action</param>
+      <param name="namespace">/</param>
+    </result>
+   <!--   在action中引用默认拦截器-->
+<interceptor-ref name="defaultStack"/>
+<!--在action中引用拦截器-->
+<interceptor-ref name="helloworld"></interceptor-ref>
+
+   </action>
+  
+
+</package>
+    <include file="com/action/struts-struts.xml" ></include>
+   </struts>
